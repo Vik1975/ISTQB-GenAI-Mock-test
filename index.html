@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISTQB GenAI Mock Exam</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Welcome Page -->
+    <div id="welcomePage" class="container">
+        <h1>ISTQB GenAI Mock Exam</h1>
+        <p>Test your knowledge of Generative AI Testing</p>
+
+        <div class="exam-options">
+            <div class="option-card" onclick="startExam(10, 15)">
+                <h3>Quick Exam</h3>
+                <p><strong>10 Questions</strong></p>
+                <p>Time: 15 minutes</p>
+                <button class="start-btn">Start</button>
+            </div>
+
+            <div class="option-card" onclick="startExam(20, 35)">
+                <h3>Standard Exam</h3>
+                <p><strong>20 Questions</strong></p>
+                <p>Time: 35 minutes</p>
+                <button class="start-btn">Start</button>
+            </div>
+
+            <div class="option-card" onclick="startExam(40, 75)">
+                <h3>Full Exam</h3>
+                <p><strong>40 Questions</strong></p>
+                <p>Time: 75 minutes</p>
+                <button class="start-btn">Start</button>
+            </div>
+        </div>
+
+        <div class="official-link">
+            <p>For more information, visit the official ISTQB GenAI certification page:</p>
+            <a href="https://astqb.org/certifications/testing-with-generative-ai/?_gl=1*zp9bsm*_up*MQ..*_gs*MQ..&gclid=CjwKCAiA0eTJBhBaEiwA-Pa-hU6JBpc1PtgWN7uTejyB0LlNhtdbvBqObfJ81eLMlHc8IRBbMJ_IehoCeW8QAvD_BwE&gbraid=0AAAAAD8OwsFWLI3KN595oWtNV62l-xhh1" target="_blank">ISTQB Testing with Generative AI</a>
+        </div>
+    </div>
+
+    <!-- Exam Page -->
+    <div id="examPage" class="container hidden">
+        <button class="home-btn" onclick="exitToHome()">Exit to Home Page</button>
+
+        <div class="exam-header">
+            <div class="timer" id="timer">Time Remaining: <span id="timeDisplay">00:00</span></div>
+            <div class="progress">Question <span id="currentQuestion">1</span> of <span id="totalQuestions">10</span></div>
+        </div>
+
+        <div id="questionContainer">
+            <h2 id="questionText"></h2>
+            <div id="optionsContainer"></div>
+        </div>
+
+        <div class="navigation">
+            <button id="prevBtn" onclick="previousQuestion()" disabled>Previous</button>
+            <button id="nextBtn" onclick="nextQuestion()">Next</button>
+            <button id="submitBtn" onclick="submitExam()" class="hidden">Submit Exam</button>
+        </div>
+    </div>
+
+    <!-- Results Page -->
+    <div id="resultsPage" class="container hidden">
+        <button class="home-btn" onclick="exitToHome()">Exit to Home Page</button>
+
+        <h1>Exam Results</h1>
+        <div class="score-summary">
+            <h2 id="scoreDisplay"></h2>
+            <p id="passStatus"></p>
+            <p>Correct Answers: <span id="correctCount"></span> / <span id="totalCount"></span></p>
+        </div>
+
+        <div id="reviewContainer"></div>
+
+        <button class="restart-btn" onclick="restartExam()">Take Another Exam</button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
