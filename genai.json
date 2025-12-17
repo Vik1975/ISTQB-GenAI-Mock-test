@@ -906,7 +906,7 @@
             "Chatbots talking to the LLM",
             "Chatbots talking to other chatbots that have been trained on your system",
             "APIs of the LLM to allow the test task information to pass into and out of the LLM",
-            "APIs of the LLM to pass the test case information into the LLM to be stored there - 5 - Copyright ASTQB, All Rights Reserved ISTQB Testing with Generative AI v1.0 Sample Exam Answers"
+            "APIs of the LLM to pass the test case information into the LLM to be stored there"
         ],
         "correctAnswer": 2,
         "explanation": "Using the APIs of the LLM will allow maximum usage of the LLM by passing the necessary data to and from it. D doesn’t make sense because the test case information would be stored in the test management system, not in the LLM. A and B are incorrect because chatbots would not be the most efficient or flexible access. (GenAI-1.2.2 (K2) Compare interaction models when using GenAI for software testing) - 6 - Copyright ASTQB, All Rights Reserved ISTQB Testing with Generative AI v1.0 Sample Exam Answers"
@@ -918,7 +918,7 @@
             "Role",
             "Context",
             "Instruction",
-            "Output format - 6 - Copyright ASTQB, All Rights Reserved ISTQB Testing with Generative AI v1.0 Sample Exam Answers"
+            "Output format"
         ],
         "correctAnswer": 3,
         "explanation": "This is the output format that you are specifying. (GenAI-2.1.1 (K2) Give examples of the structure of prompts used in generative AI for software testing) - 7 - Copyright ASTQB, All Rights Reserved ISTQB Testing with Generative AI v1.0 Sample Exam Answers"
@@ -954,7 +954,7 @@
             "Apply multimodal prompts",
             "Set well-defined system parameters to define the graphics to be used",
             "Apply prompt chaining",
-            "Use meta prompting so the prompts can be continuously refined - 8 - Copyright ASTQB, All Rights Reserved ISTQB Testing with Generative AI v1.0 Sample Exam Answers"
+            "Use meta prompting so the prompts can be continuously refined"
         ],
         "correctAnswer": 0,
         "explanation": "In this case, you will definitely need multimodal prompts because the data you are providing is both graphics and text. B is not correct because this is not something that is defined in system parameters. C is not correct because, also, prompt chaining may be useful; you first need to get the information into the system via A. D is not correct because it’s not a matter of generating additional prompts. (GenAI-2.2.2 (K3) Apply generative AI to test design and test implementation tasks) - 10 - Copyright ASTQB, All Rights Reserved ISTQB Testing with Generative AI v1.0 Sample Exam Answers"
@@ -966,7 +966,7 @@
             "It could analyze test failures and prioritize the tests that failed last time so they are executed first for each new release.",
             "It could use meta prompting to review each test case to determine if it is an effective test. Ineffective tests could then be removed from the overall test suite.",
             "It could create large sets of test data that are used across releases of the product to ensure that data variance is not causing the repeated failures.",
-            "It could conduct root cause analysis over all the defects found across releases to determine the common causes. This information could then be used to improve development and analysis processes. - 9 - Copyright ASTQB, All Rights Reserved ISTQB Testing with Generative AI v1.0 Sample Exam Answers"
+            "It could conduct root cause analysis over all the defects found across releases to determine the common causes. This information could then be used to improve development and analysis processes."
         ],
         "correctAnswer": 3,
         "explanation": "We don’t know what’s causing these issues, and we are catching them in testing, but they shouldn’t be occurring in the first place. Root cause analysis will tell us what is breaking and why. (GenAI-2.2.3 (K3) Apply generative AI to automated regression testing) - 11 - Copyright ASTQB, All Rights Reserved ISTQB Testing with Generative AI v1.0 Sample Exam Answers"
@@ -990,7 +990,7 @@
             "Prompt chaining",
             "Few-shot prompting",
             "Meta prompting",
-            "Zero-shot prompting - 10 - Copyright ASTQB, All Rights Reserved ISTQB Testing with Generative AI v1.0 Sample Exam Answers"
+            "Zero-shot prompting"
         ],
         "correctAnswer": 2,
         "explanation": "In this case meta prompting is a good starting point. You have the general description of what the software should do and what a test case should accomplish, so those inputs can be used. AI can then respond, and together you can build more test cases. (GenAI-2.2.5 (K3) Select and apply appropriate prompting techniques for a given context and test task)"
@@ -1038,7 +1038,7 @@
             "You can combine the results into a superset of data, which will reduce the errors in the data",
             "You can select the data that occurs with the highest frequency and know that it is the most accurate",
             "You can compare different outputs from the same prompts to detect output errors and reliability",
-            "You can get the results faster by using multiple models concurrently - 12 - Copyright ASTQB, All Rights Reserved ISTQB Testing with Generative AI v1.0 Sample Exam Answers"
+            "You can get the results faster by using multiple models concurrently"
         ],
         "correctAnswer": 2,
         "explanation": "By comparing the results from different models using the same prompts, you can tune the prompts, compare the outputs, and pick the most reliable results. (GenAI-3.1.3 (K2) Summarize mitigation techniques for GenAI hallucinations, reasoning errors and biases in software test tasks) - 16 - Copyright ASTQB, All Rights Reserved ISTQB Testing with Generative AI v1.0 Sample Exam Answers"
@@ -1122,7 +1122,7 @@
             "It can make the LLM too generalized to be applicable and efficient",
             "It can introduce hallucinations and biases",
             "It can make the model unable or inaccurate when processing data that is new to it",
-            "It can create a lack of transparency regarding LLM decision-making - 16 - Copyright ASTQB, All Rights Reserved ISTQB Testing with Generative AI v1.0 Sample Exam Answers"
+            "It can create a lack of transparency regarding LLM decision-making"
         ],
         "correctAnswer": 2,
         "explanation": "Overfitting is when the model has become too specific and is unable to deal with data that is not within what it already knows. (GenAI-4.2.1 (K2) Explain the fine-tuning of language models for specific test tasks)"
@@ -1158,7 +1158,7 @@
             "Discovery",
             "Initiation and Training",
             "Usage Definition",
-            "Exploitation and Iteration - 18 - Copyright ASTQB, All Rights Reserved ISTQB Testing with Generative AI v1.0 Sample Exam Answers"
+            "Exploitation and Iteration "
         ],
         "correctAnswer": 0,
         "explanation": "(GenAI-5.1.4 (K1) Recall key phases in the adoption of Generative AI in a test organization) - 25 - Copyright ASTQB, All Rights Reserved ISTQB Testing with Generative AI v1.0 Sample Exam Answers"
