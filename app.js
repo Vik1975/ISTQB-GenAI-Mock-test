@@ -32,6 +32,10 @@ function startExam(numQuestions, minutes) {
 
     // Randomly select questions
     examQuestions = getRandomQuestions(numQuestions);
+
+    // Scramble options for each question
+    examQuestions = examQuestions.map(question => scrambleOptions(question));
+
     currentQuestionIndex = 0;
     userAnswers = new Array(numQuestions).fill(null);
 
@@ -57,6 +61,29 @@ function startExam(numQuestions, minutes) {
 function getRandomQuestions(count) {
     const shuffled = [...allQuestions].sort(() => Math.random() - 0.5);
     return shuffled.slice(0, Math.min(count, allQuestions.length));
+}
+
+// Scramble options for a question while tracking the correct answer
+function scrambleOptions(question) {
+    // Create deep copy of the question
+    const scrambledQuestion = { ...question };
+
+    // Create an array of indices
+    const indices = question.options.map((_, index) => index);
+
+    // Shuffle the indices using Fisher-Yates algorithm
+    for (let i = indices.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [indices[i], indices[j]] = [indices[j], indices[i]];
+    }
+
+    // Reorder options based on shuffled indices
+    scrambledQuestion.options = indices.map(i => question.options[i]);
+
+    // Update the correct answer index to match the new position
+    scrambledQuestion.correctAnswer = indices.indexOf(question.correctAnswer);
+
+    return scrambledQuestion;
 }
 
 // Start the countdown timer
@@ -153,6 +180,25 @@ function nextQuestion() {
     }
 }
 
+// Finish test early - mark unanswered questions as failed
+function finishTest() {
+    const unansweredCount = userAnswers.filter(answer => answer === null).length;
+
+    if (unansweredCount > 0) {
+        const confirmed = confirm(`You have ${unansweredCount} unanswered question(s). These will be marked as incorrect. Do you want to finish the test now?`);
+        if (!confirmed) {
+            return;
+        }
+    } else {
+        const confirmed = confirm('Are you sure you want to finish the test?');
+        if (!confirmed) {
+            return;
+        }
+    }
+
+    submitExam();
+}
+
 // Submit exam
 function submitExam() {
     // Stop timer
@@ -202,7 +248,13 @@ function displayReview() {
         reviewDiv.className = 'review-question';
 
         const questionTitle = document.createElement('h3');
-        questionTitle.textContent = `Question ${index + 1}: ${question.question}`;
+        const userAnswer = userAnswers[index];
+        const wasAnswered = userAnswer !== null;
+        const statusText = wasAnswered ? '' : ' (Not Answered - Marked as Failed)';
+        questionTitle.textContent = `Question ${index + 1}: ${question.question}${statusText}`;
+        if (!wasAnswered) {
+            questionTitle.style.color = '#e74c3c';
+        }
         reviewDiv.appendChild(questionTitle);
 
         // Display options with color coding
@@ -211,7 +263,6 @@ function displayReview() {
             optionDiv.className = 'review-option';
             optionDiv.textContent = option;
 
-            const userAnswer = userAnswers[index];
             const correctAnswer = question.correctAnswer;
 
             if (optionIndex === correctAnswer) {
@@ -222,6 +273,9 @@ function displayReview() {
                 // User selected this wrong answer
                 optionDiv.classList.add('incorrect');
                 optionDiv.textContent += ' ✗ (Your Answer)';
+            } else if (userAnswer === null && optionIndex === 0) {
+                // Mark first option as skipped for unanswered questions
+                optionDiv.classList.add('neutral');
             } else {
                 optionDiv.classList.add('neutral');
             }
